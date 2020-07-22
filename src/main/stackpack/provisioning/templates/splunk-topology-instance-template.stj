@@ -1,0 +1,67 @@
+{
+  "nodes": [
+    {
+      "_type": "DataSource",
+      "config": {
+        "_type": "Sts.StsTopologyDataSourceConfig",
+        "autoExpireElements": false,
+        "expireElementsAfter": 172800000,
+        "id": -2,
+        "integrationType": "{{integrationType}}",
+        "supportedDataTypes": [
+          "TOPOLOGY_ELEMENTS"
+        ],
+        "supportedWindowingMethods": [],
+        "topic": "{{topicName}}"
+      },
+      "description": "DataSource that was generated for {{integrationType}} {{integrationUrl}}",
+      "extTopology": {
+        "_type": "ExtTopology",
+        "dataSource": -1,
+        "id": -3,
+        "settings": {
+          "_type": "TopologySyncSettings",
+          "cleanupExpiredElements": false,
+          "cleanupInterval": 3600000,
+          "id": -4,
+          "maxBatchSize": 200,
+          "maxBatchesPerSecond": 5
+        }
+      },
+      "id": -1,
+      "identifier": "urn:stackpack:splunk-topology:instance:{{instanceId}}:data-source:datasource-{{integrationType}}-{{integrationUrl}}",
+      "name": "DataSource {{integrationType}} {{integrationUrl}}",
+      "pluginId": "Sts",
+      "uiRequestTimeout": 15000
+    },
+    {
+      "_type": "Sync",
+      "componentActions": [],
+      "defaultComponentAction": {
+        "_type": "SyncActionCreateComponent",
+        "mappingFunction": {{ get "urn:stackpack:splunk-topology:shared:component-mapping-function:splunk-topology-component-mapping-function"  }},
+        "mergeStrategy": "MergePreferTheirs",
+        "templateFunction": {{ get "urn:stackpack:splunk-topology:shared:component-template-function:splunk-topology-component-template" }},
+        "type": "default_component_mapping"
+      },
+      "defaultRelationAction": {
+        "_type": "SyncActionCreateRelation",
+        "mergeStrategy": "MergePreferTheirs",
+        "templateFunction": {{ get "urn:stackpack:splunk-topology:shared:relation-template-function:splunk-topology-relation-template" }},
+        "type": "default_relation_mapping"
+      },
+      "extTopology": -3,
+      "identifier": "urn:stackpack:splunk-topology:instance:{{instanceId}}:sync:synchronisation-{{integrationType}}-{{integrationUrl}}",
+      "name": "Synchronization {{integrationType}} {{integrationUrl}}",
+      "relationActions": [],
+      "topologyDataQuery": {
+        "_type": "Sts.StsTopologyElementsQuery",
+        "componentIdExtractorFunction": {{ get "urn:stackpack:splunk-topology:shared:id-extractor-function:splunk-topology-component-id-extractor" }},
+        "consumerOffsetStartAtEarliest": false,
+        "relationIdExtractorFunction": {{ get "urn:stackpack:splunk-topology:shared:id-extractor-function:splunk-topology-relation-id-extractor" }}
+      }
+    }
+  ],
+  "timestamp": "2019-11-27T15:29:47Z",
+  "version": "0.1"
+}
