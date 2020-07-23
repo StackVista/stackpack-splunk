@@ -1,30 +1,7 @@
 {
     "_type": "Relation",
     "checks": [],
-    "streams": [
-        \{{# join element.data.metrics "," \}}
-            {
-                "_type": "MetricStream",
-                "name": "\{{ name \}}",
-                "query": {
-                    "conditions": [
-                        \{{# join conditions "," \}}
-                            {
-                                "key": "\{{ key \}}",
-                                "value": "\{{ value \}}"
-                            }
-                        \{{/ join \}}
-                    ],
-                    "_type": " MetricTelemetryQuery",
-                    "metricField": "\{{#if metricField \}}\{{ metricField \}}\{{else\}}value\{{/if\}}",
-                    "aggregation": "\{{#if aggregation \}}\{{ aggregation \}}\{{else\}}MEAN\{{/if\}}"
-                },
-                "dataSource": \{{ get "urn:stackpack:common:data-source:stackstate-metrics" \}},
-                "dataType": "METRICS",
-                "id": \{{ id \}}
-            }
-        \{{/ join \}}
-    ],
+    "streams": [],
     "labels": [],
     "name": "\{{ element.sourceExternalId \}} --> \{{ element.targetExternalId \}}",
     \{{#if element.data.description\}}

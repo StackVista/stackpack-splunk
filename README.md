@@ -4,14 +4,14 @@ This repository contains the StackState Splunk StackPack. The code is distribute
 
 ## Introduction
 
-The Splunk StackPack connects Splunk to StackState, allowing you to monitor your Splunk instance(s). You can find the
+The Splunk StackPack connects Splunk to StackState, allowing you to monitor your Splunk instance. You can find the
 [capabilities of the StackPack](src/main/stackpack/resources/overview.md) and the [configuration instructions](src/main/stackpack/resources/detailed-overview.md) in this repository.
 
 The Splunk StackPack configures StackState to processes data produced by the Splunk integration in the [StackState agent](https://github.com/StackVista/sts-agent). The Splunk integration can be found in the [integrations repository](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_topology).
 
 ## Documentation
 
-The StackState [documentation](https://docs.stackstate.com/develop/creating_stackpacks/) describes how to build and install a StackPack.
+The StackState [documentation](https://docs.stackstate.com/develop/tutorials/basic_stackpack_tutorial) describes how to build and install a StackPack.
 
 ## Building
 

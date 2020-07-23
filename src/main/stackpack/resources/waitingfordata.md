@@ -1,6 +1,6 @@
 ## The Splunk Topology StackPack is waiting for your action
 
-Provisioning of StackState configuration is done. We are now ready to process your data. If you haven't installed the StackState API Integration Agent please do so. After the installation of the API Integration Agent  we can configure the Splunk Topology integration.
+Provisioning of StackState configuration is done. We are now ready to process your data. If you haven't installed the StackState API Integration Agent please do so. After the installation of the API Integration Agent we can configure the Splunk Topology integration.
  
 ### Installation
 
