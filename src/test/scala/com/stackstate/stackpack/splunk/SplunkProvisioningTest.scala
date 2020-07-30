@@ -18,7 +18,8 @@ class SplunkProvisioningTest extends WordSpecLike with Matchers {
   import testKit._
 
   val config = Map[String, Object](
-    "sts_instance_url" -> "http://localhost:8089"
+    "sts_instance_url" -> "http://localhost:8089",
+    "splunk_instance_name" -> "splunk-test"
   )
 
   "The Splunk Topology Provisioning" should {
@@ -27,7 +28,7 @@ class SplunkProvisioningTest extends WordSpecLike with Matchers {
       stackPackPackage.install(provisioningContext, config.asJava).run()
 
       val (_, templateFile, args) = verifyTemplateImportedWithNamespace(provisioningContext.stackPack.namespace)
-      args shouldBe empty
+      args should not be empty
       templateFile shouldBe "templates/splunk-topology-template.stj"
 
       val (_, instanceTemplateFile, instanceArgs) = verifyTemplateImportedWithNamespace(provisioningContext.instance.namespace)

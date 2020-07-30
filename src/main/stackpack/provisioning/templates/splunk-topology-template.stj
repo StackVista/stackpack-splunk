@@ -78,19 +78,6 @@
           "type": "STRUCT_TYPE"
         }
       ]
-    },
-    {
-      "_type": "QueryView",
-      "groupedByDomains": true,
-      "groupedByLayers": true,
-      "groupedByRelations": true,
-      "groupingEnabled": true,
-      "identifier": "urn:stackpack:splunk-topology:shared:query-view:splunk",
-      "minimumGroupSize": 10,
-      "name": "Splunk",
-      "query": "label IN ('stackpack:splunk')",
-      "queryVersion": "0.0.1",
-      "showIndirectRelations": false
     }
   ],
   "timestamp": "2019-11-27T15:29:42Z",

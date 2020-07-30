@@ -1,6 +1,5 @@
 // Set some sane defaults.
 
-
 if(!element.data.containsKey("environment")) {
     element.data.put("environment", "Production")
 }

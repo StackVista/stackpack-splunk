@@ -7,14 +7,14 @@
         "autoExpireElements": false,
         "expireElementsAfter": 172800000,
         "id": -2,
-        "integrationType": "{{integrationType}}",
+        "integrationType": "splunk",
         "supportedDataTypes": [
           "TOPOLOGY_ELEMENTS"
         ],
         "supportedWindowingMethods": [],
         "topic": "{{topicName}}"
       },
-      "description": "DataSource that was generated for {{integrationType}} {{integrationUrl}}",
+      "description": "DataSource that was generated for {{instanceName}}",
       "extTopology": {
         "_type": "ExtTopology",
         "dataSource": -1,
@@ -29,8 +29,8 @@
         }
       },
       "id": -1,
-      "identifier": "urn:stackpack:splunk-topology:instance:{{instanceId}}:data-source:datasource-{{integrationType}}-{{integrationUrl}}",
-      "name": "DataSource {{integrationType}} {{integrationUrl}}",
+      "identifier": "urn:stackpack:splunk-topology:instance:{{instanceId}}:data-source:splunk-{{instanceName}}",
+      "name": "Splunk - {{instanceName}}",
       "pluginId": "Sts",
       "uiRequestTimeout": 15000
     },
@@ -51,8 +51,8 @@
         "type": "default_relation_mapping"
       },
       "extTopology": -3,
-      "identifier": "urn:stackpack:splunk-topology:instance:{{instanceId}}:sync:synchronisation-{{integrationType}}-{{integrationUrl}}",
-      "name": "Synchronization {{integrationType}} {{integrationUrl}}",
+      "identifier": "urn:stackpack:splunk-topology:instance:{{instanceId}}:sync:splunk-{{instanceName}}",
+      "name": "Splunk Sync - {{instanceName}}",
       "relationActions": [],
       "topologyDataQuery": {
         "_type": "Sts.StsTopologyElementsQuery",
@@ -60,6 +60,19 @@
         "consumerOffsetStartAtEarliest": false,
         "relationIdExtractorFunction": {{ get "urn:stackpack:splunk-topology:shared:id-extractor-function:splunk-topology-relation-id-extractor" }}
       }
+    },
+    {
+      "_type": "QueryView",
+      "groupedByDomains": true,
+      "groupedByLayers": true,
+      "groupedByRelations": true,
+      "groupingEnabled": true,
+      "identifier": "urn:stackpack:splunk-topology:instance:{{instanceId}}:query-view:splunk-{{instanceName}}",
+      "minimumGroupSize": 10,
+      "name": "Splunk - {{instanceName}}",
+      "query": "label IN ('stackpack:splunk', 'splunk-instance:{{instanceName}}')",
+      "queryVersion": "0.0.1",
+      "showIndirectRelations": false
     }
   ],
   "timestamp": "2019-11-27T15:29:47Z",

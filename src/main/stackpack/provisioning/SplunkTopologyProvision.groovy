@@ -11,18 +11,17 @@ class SplunkTopologyProvision extends ProvisioningScript {
 
   @Override
   ProvisioningIO<scala.Unit> install(Map<String, Object> config) {
-    def cleanConfig = cleanupConfig(config)
-
+    def instance_name = config.splunk_instance_name.trim()
+    def args = ["instanceName": instance_name]
     def templateArguments = [
-      'topicName': topicName(cleanConfig),
-      'integrationType': cleanConfig.sts_instance_type,
-      'integrationUrl': integrationUrl(cleanConfig),
-      'instanceId': context().instance().id()
+            'topicName'   : topicName(config),
+            'instanceName': instance_name,
+            'instanceId'  : context().instance().id()
     ]
-    templateArguments.putAll(cleanConfig)
+    templateArguments.putAll(config)
 
-    return context().stackPack().importSnapshot("templates/splunk-topology-template.stj", [:]) >>
-           context().instance().importSnapshot("templates/splunk-topology-instance-template.stj", templateArguments)
+    return context().stackPack().importSnapshot("templates/splunk-topology-template.stj", args) >>
+            context().instance().importSnapshot("templates/splunk-topology-instance-template.stj", templateArguments)
   }
 
   @Override
@@ -37,22 +36,9 @@ class SplunkTopologyProvision extends ProvisioningScript {
     })
   }
 
-  private def cleanupConfig(Map<String, Object> config) {
-    def cleanConfig = [:]
-    cleanConfig.putAll(config)
-    cleanConfig.sts_instance_url = config.sts_instance_url.trim()
-    cleanConfig.sts_instance_type = 'splunk'
-
-    return cleanConfig
-  }
-
   private def topicName(Map<String, Object> config) {
     def url = config.sts_instance_url.trim()
     def type = 'splunk'
     return context().sts().createTopologyTopicName(type, url)
-  }
-
-  private def integrationUrl(Map<String, Object> config) {
-    return config.sts_instance_url.trim()
   }
 }
