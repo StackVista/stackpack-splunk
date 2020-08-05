@@ -12,7 +12,6 @@ class SplunkTopologyProvision extends ProvisioningScript {
   @Override
   ProvisioningIO<scala.Unit> install(Map<String, Object> config) {
     def instance_name = config.splunk_instance_name.trim()
-    def args = ["instanceName": instance_name]
     def templateArguments = [
             'topicName'   : topicName(config),
             'instanceName': instance_name,
@@ -20,7 +19,7 @@ class SplunkTopologyProvision extends ProvisioningScript {
     ]
     templateArguments.putAll(config)
 
-    return context().stackPack().importSnapshot("templates/splunk-topology-template.stj", args) >>
+    return context().stackPack().importSnapshot("templates/splunk-topology-template.stj", [:]) >>
             context().instance().importSnapshot("templates/splunk-topology-instance-template.stj", templateArguments)
   }
 

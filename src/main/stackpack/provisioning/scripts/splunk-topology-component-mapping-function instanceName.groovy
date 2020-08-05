@@ -1,5 +1,7 @@
 // Set some sane defaults.
 
+def labels = new ArrayList()
+
 if(!element.data.containsKey("environment")) {
     element.data.put("environment", "Production")
 }
@@ -15,8 +17,11 @@ if(!element.data.containsKey("layer")) {
 // split labels payload based on comma
 
 if (element.data.containsKey('labels') && element.data.labels instanceof String) {
-    splittedLabels = element.data.labels.split(',').toList()
-    element.data.put("labels", splittedLabels)
+    labels = element.data.labels.split(',').toList()
 }
+
+labels << "splunk-instance:{{instanceName}}"
+
+element.data.put("labels", labels)
 
 element

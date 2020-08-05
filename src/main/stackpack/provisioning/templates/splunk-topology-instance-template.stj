@@ -14,7 +14,7 @@
         "supportedWindowingMethods": [],
         "topic": "{{topicName}}"
       },
-      "description": "DataSource that was generated for {{instanceName}}",
+      "description": "DataSource that was generated for Splunk - {{instanceName}}",
       "extTopology": {
         "_type": "ExtTopology",
         "dataSource": -1,
@@ -35,11 +35,27 @@
       "uiRequestTimeout": 15000
     },
     {
+       "_type": "ComponentMappingFunction",
+       "id": -49,
+       "name": "Splunk Topology component mapping function - {{instanceName}}",
+       "identifier": "urn:stackpack:splunk-topology:instance:{{instanceId}}:component-mapping-function:splunk-topology-component-mapping-function",
+       "parameters": [{
+          "_type": "Parameter",
+          "id": -50,
+          "multiple": false,
+          "name": "element",
+          "required": true,
+          "system": true,
+          "type": "STRUCT_TYPE"
+       }],
+       "script": "{{ include "./scripts/splunk-topology-component-mapping-function instanceName.groovy" }}"
+    },
+    {
       "_type": "Sync",
       "componentActions": [],
       "defaultComponentAction": {
         "_type": "SyncActionCreateComponent",
-        "mappingFunction": {{ get "urn:stackpack:splunk-topology:shared:component-mapping-function:splunk-topology-component-mapping-function"  }},
+        "mappingFunction": -49,
         "mergeStrategy": "MergePreferTheirs",
         "templateFunction": {{ get "urn:stackpack:splunk-topology:shared:component-template-function:splunk-topology-component-template" }},
         "type": "default_component_mapping"

@@ -33,19 +33,6 @@
           "type": "STRUCT_TYPE"
         }
       ]
-    },{
-      "_type": "ComponentMappingFunction",
-      "name": "Splunk Topology component mapping function",
-      "identifier": "urn:stackpack:splunk-topology:shared:component-mapping-function:splunk-topology-component-mapping-function",
-      "parameters": [{
-        "_type": "Parameter",
-        "multiple": false,
-        "name": "element",
-        "required": true,
-        "system": true,
-        "type": "STRUCT_TYPE"
-      }],
-      "script": "{{ include "./scripts/splunk-topology-component-mapping-function.groovy" }}"
     },
     {
       "_type": "ComponentTemplateFunction",
