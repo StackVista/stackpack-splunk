@@ -3,20 +3,20 @@
     "checks": [],
     "streams": [],
     "labels": [
+        {
+            "_type": "Label",
+            "name": "stackpack:splunk"
+        },
         \{{#if element.data.labels \}}
-            \{{# join element.data.labels "," "" "," \}}
+            \{{# join element.data.labels "," \}}
             {
             "_type": "Label",
             "name": "\{{ this \}}"
             }
             \{{/ join \}}
         \{{/if\}}
-        {
-            "_type": "Label",
-            "name": "stackpack:splunk"
-        }
         \{{#if element.data.tags \}}
-            \{{# join element.data.tags "," "," "" \}}
+            \{{# join element.data.tags "," "," \}}
             {
               "_type": "Label",
               "name": "\{{ this \}}"
@@ -33,6 +33,6 @@
     "layer": \{{ getOrCreate (identifier "urn:stackpack:common" "Layer" element.data.layer ) (identifier "urn:system:auto" "Layer" element.data.layer) (concat "Type=Layer;Name=" element.data.layer) \}},
     "domain": \{{ getOrCreate (identifier "urn:stackpack:common" "Domain" element.data.domain ) (identifier "urn:system:auto" "Domain" element.data.domain) (concat "Type=Domain;Name=" element.data.domain) \}},
     "environments": [
-        \{{ getOrCreate (identifier "urn:stackpack:common" "Environment" element.data.environment ) (identifier "urn:system:auto" "Environment" element.data.environment) (concat "Type=Environment;Name=" element.data.environment) \}},
+        \{{ getOrCreate (identifier "urn:stackpack:common" "Environment" element.data.environment ) (identifier "urn:system:auto" "Environment" element.data.environment) (concat "Type=Environment;Name=" element.data.environment) \}}
     ]
 }
