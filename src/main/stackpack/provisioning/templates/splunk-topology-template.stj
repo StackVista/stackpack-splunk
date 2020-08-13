@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "_type": "IdExtractorFunction",
+      "description": "A component id extractor function for Splunk topology elements.",
+      "groovyScript": "{{ include "./scripts/Splunk topology component id extractor.groovy" }}",
+      "identifier": "urn:stackpack:splunk-topology:shared:id-extractor-function:splunk-topology-component-id-extractor",
+      "name": "Splunk Topology component id extractor",
+      "parameters": [
+        {
+          "_type": "Parameter",
+          "multiple": false,
+          "name": "topologyElement",
+          "required": true,
+          "system": true,
+          "type": "STRUCT_TYPE"
+        }
+      ]
+    },
+    {
+      "_type": "IdExtractorFunction",
+      "description": "A relation id extractor function for Splunk topology elements.",
+      "groovyScript": "{{ include "./scripts/Splunk topology relation id extractor.groovy" }}",
+      "identifier": "urn:stackpack:splunk-topology:shared:id-extractor-function:splunk-topology-relation-id-extractor",
+      "name": "Splunk Topology relation id extractor",
+      "parameters": [
+        {
+          "_type": "Parameter",
+          "multiple": false,
+          "name": "topologyElement",
+          "required": true,
+          "system": true,
+          "type": "STRUCT_TYPE"
+        }
+      ]
+    },
+    {
+      "_type": "ComponentTemplateFunction",
+      "handlebarsTemplate": "{{ include "./templates/splunk-topology-component-template.json.handlebars" }}",
+      "identifier": "urn:stackpack:splunk-topology:shared:component-template-function:splunk-topology-component-template",
+      "name": "Splunk Topology component template",
+      "parameters": [
+        {
+          "_type": "Parameter",
+          "multiple": false,
+          "name": "element",
+          "required": true,
+          "system": false,
+          "type": "STRUCT_TYPE"
+        }
+      ]
+    },
+    {
+      "_type": "RelationTemplateFunction",
+      "handlebarsTemplate": "{{ include "./templates/splunk-topology-relation-template.json.handlebars" }}",
+      "identifier": "urn:stackpack:splunk-topology:shared:relation-template-function:splunk-topology-relation-template",
+      "name": "Splunk Topology relation template",
+      "parameters": [
+        {
+          "_type": "Parameter",
+          "multiple": false,
+          "name": "element",
+          "required": true,
+          "system": false,
+          "type": "STRUCT_TYPE"
+        }
+      ]
+    }
+  ],
+  "timestamp": "2019-11-27T15:29:42Z",
+  "version": "0.1"
+}
