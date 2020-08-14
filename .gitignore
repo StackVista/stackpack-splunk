@@ -3,3 +3,4 @@ project/target/
 splunk/target/
 target/
 .idea
+version.sbt-e
