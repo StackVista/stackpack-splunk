@@ -1,5 +1,10 @@
 # Splunk StackPack Release Notes
 
+## 2.0.1 (30-03-2021)
+
+**Bugfix**
+- Common version bump from 2.4.3 to 3.0.0
+
 ## 2.0.0 (29-03-2021)
 
 **Improvements**
