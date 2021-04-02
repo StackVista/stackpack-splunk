@@ -4,6 +4,7 @@
 
 **Improvements**
 - Common version bump from 2.1.0 to 2.5.0
+- StackState min version bumped to 4.3.0
 
 ## 1.0.0
 
