@@ -4,11 +4,11 @@ The StackState API-Integration Agent and/or StackState Agent V2 must be configur
 
 Details of how to configure each of these checks can be found on the pages listed below:
 
-* [Splunk topology V2 check with StackState Agent V2](/#/stackpacks/splunk/int-splunk-topology-v2-overview.md)
-* [Splunk topology V1 check with the API-Integration Agent](/#/stackpacks/splunk/int-splunk-topology-v1-overview.md)
-* [Splunk metrics check configuration](/#/stackpacks/splunk/int-splunk-metrics-overview.md)
-* [Splunk events check configuration](/#/stackpacks/splunk/int-splunk-events-overview.md)
-* [Splunk health check configuration](/#/stackpacks/splunk/int-splunk-health-overview.md)
+* [Splunk topology V2 check with StackState Agent V2](/#/stackpacks/splunk-topology/splunktopologyv2)
+* [Splunk topology V1 check with the API-Integration Agent](/#/stackpacks/splunk-topology/splunktopologyv1)
+* [Splunk metrics check configuration](/#/stackpacks/splunk-topology/splunkmetrics)
+* [Splunk events check configuration](/#/stackpacks/splunk-topology/splunkevents)
+* [Splunk health check configuration](/#/stackpacks/splunk-topology/splunkhealth)
 
 ## Troubleshooting
 

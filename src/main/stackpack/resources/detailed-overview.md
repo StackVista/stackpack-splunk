@@ -15,13 +15,13 @@
 
 When the Splunk events Agent check is configured, events will be retrieved from the configured Splunk saved searches. Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](https://l.stackstate.com/ui-splunk-add-telemetry-stream).
 
-For details on how to configure the events retrieved, see the [Splunk events check configuration](/#/stackpacks/splunk/int-splunk-events-overview.md).
+For details on how to configure the events retrieved, see the [Splunk events check configuration](/#/stackpacks/splunk-topology/splunkevents).
 
 #### Metrics
 
 When the Splunk metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved searches. One metric can be retrieved from each saved search. Metrics retrieved from Splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](https://l.stackstate.com/ui-splunk-add-telemetry-stream).
 
-For details on how to configure the metrics retrieved, see the [Splunk metrics check configuration](/#/stackpacks/splunk/int-splunk-metrics-overview.md).
+For details on how to configure the metrics retrieved, see the [Splunk metrics check configuration](/#/stackpacks/splunk-topology/splunkmetrics).
 
 #### Topology
 
@@ -29,8 +29,8 @@ When the Splunk StackPack is installed and a Splunk topology Agent check is conf
 
 For details on how to configure the components and relations retrieved, see:
 
-- The [Splunk topology V2 check configuration - StackState Agent V2](/#/stackpacks/splunk/int-splunk-topology-v2-overview.md)
-- The [Splunk topology V1 check configuration - API-Integration Agent](/#/stackpacks/splunk/int-splunk-topology-v1-overview.md)
+- The [Splunk topology V2 check configuration - StackState Agent V2](/#/stackpacks/splunk-topology/splunktopologyv2)
+- The [Splunk topology V1 check configuration - API-Integration Agent](/#/stackpacks/splunk-topology/splunktopologyv1)
 
 If you have an existing Splunk topology integration configured to use the API-Integration Agent and would like to upgrade to use StackState Agent V2, refer to the [Splunk topology check upgrade instructions](https://l.stackstate.com/ui-splunk-topology-upgrade-to-v2).
 
@@ -38,7 +38,7 @@ If you have an existing Splunk topology integration configured to use the API-In
 
 When the Splunk health Agent check is configured, health check states will be retrieved from the configured Splunk saved searches. Retrieved health check states are mapped to the associated components and relations in StackState.
 
-For details on how to configure the health retrieved, see the [Splunk health check configuration](/#/stackpacks/splunk/int-splunk-health-overview.md).
+For details on how to configure the health retrieved, see the [Splunk health check configuration](/#/stackpacks/splunk-topology/splunkhealth).
 
 #### Traces
 
