@@ -20,5 +20,5 @@ The Splunk StackPack can be uninstalled by clicking the **UNINSTALL** button. Th
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=Splunk).
+Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://l.stackstate.com/ui-splunk-support-kb).
 

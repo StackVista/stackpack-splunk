@@ -85,7 +85,7 @@ The example Splunk saved search above would result in the following topology rel
 
 To enable the Splunk topology V2 integration and begin collecting component and relation data from your Splunk instance, the Splunk topology V2 check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
-See the example Splunk topology Agent check configuration file: [splunk_topology/conf.yaml.example \(github.com\)](https://l.stackstate.com/QmSui-splunk-topology-v2-check-example)
+See the example Splunk topology Agent check configuration file: [splunk_topology/conf.yaml.example \(github.com\)](https://l.stackstate.com/ui-splunk-topology-v2-check-example)
 
 To configure the Splunk topology Agent check:
 
@@ -105,7 +105,7 @@ To configure the Splunk topology Agent check:
        * **batch_size** - Default `1000`.
        * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
 4. Under **relation_saved_searches**, add details of each Splunk saved search that the check should execute to retrieve relations.
-5. More advanced options can be found in the [example configuration \(github.com\)](https://l.stackstate.com/QmSui-splunk-topology-v2-check-example). 
+5. More advanced options can be found in the [example configuration \(github.com\)](https://l.stackstate.com/ui-splunk-topology-v2-check-example). 
 6. Save the configuration file.
 7. Restart StackState Agent V2 to apply the configuration changes.
 8. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
