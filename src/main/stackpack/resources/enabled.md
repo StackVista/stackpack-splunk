@@ -1,11 +1,24 @@
-## The StackState Splunk StackPack is installed
+## The Splunk StackPack is installed
 
-Congratulations! The StackState Splunk StackPack is configured correctly. Data is received.
+Congratulations! The Splunk StackPack is configured correctly. Data is being received.
 
-### What's next
+### What's next?
 
-Now that StackState has the topology from your Splunk instance, you can see your topology in the Splunk view.
+Now that StackState is receiving data from your Splunk instance, you can see your topology in the StackState Splunk views.
 
-### Disabling the Splunk StackPack
+* [list view names if available]
 
-The Splunk StackPack can be disabled by clicking the **Uninstall** button on the right. This will disable all Splunk specific configuration in StackState but the agent will be still collecting the data until it is completely deprovisioned.
+Find out more in the [Splunk StackPack documentation]([link to docs]).
+
+### Change the StackState Agent Splunk check configuration
+
+Refer to the StackState docs for details on [how to change configuration of the StackState Agent Splunk checks](https://l.stackstate.com/ui-stackpackName-configure-check) that collect data from Splunk.
+
+## Uninstall the Splunk StackPack
+
+The Splunk StackPack can be uninstalled by clicking the **UNINSTALL** button. This will remove all Splunk topology specific configuration in StackState.
+
+## Troubleshooting
+
+Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=Splunk).
+
