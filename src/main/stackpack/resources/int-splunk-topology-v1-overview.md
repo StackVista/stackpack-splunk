@@ -1,9 +1,9 @@
 ## Overview
 
-The StackState Splunk topology V1 integration collects topology from Splunk by executing Splunk saved searches from the [StackState API-Integration Agent](/stackpacks/integrations/api-integration.md). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and the StackState API-Integration Agent:
+The StackState Splunk topology V1 integration collects topology from Splunk by executing Splunk saved searches from the [StackState API-Integration Agent](/#/stackpacks/api-integration/). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and the StackState API-Integration Agent:
 
-* [In Splunk](#splunk-saved-search) - there should be at least one saved search that generates the topology data you want to retrieve.
-* [In the StackState API-Integration Agent](#agent-check) - a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* In Splunk there should be at least one saved search that generates the topology data you want to retrieve.
+* In the StackState API-Integration Agent, a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk topology check on the StackState API-Integration Agent will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
 
@@ -11,7 +11,7 @@ The Splunk topology check on the StackState API-Integration Agent will execute a
 
 ### Fields used
 
-The StackState API-Integration Agent executes the Splunk saved searches configured in the [Splunk topology V1 Agent check](#agent-check) and pushes retrieved data to StackState as components and relations. The fields from the results of a saved search that are sent to StackState are described below.
+The StackState API-Integration Agent executes the Splunk saved searches configured in the Splunk topology V1 Agent check and pushes retrieved data to StackState as components and relations. The fields from the results of a saved search that are sent to StackState are described below.
 
 #### Component fields
 
@@ -24,7 +24,7 @@ The following fields from the results of a saved search are sent to StackState f
 | **name** | string | ✅ | The value will be used as the component name. |
 | **identifier.&lt;identifier\_name&gt;**  | string | - | The value will be included as identifier of the component. |
 | **label.&lt;label\_name&gt;** | string | - | The value will be added as a label on the component in the format `label_name:value` |
-| All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
+| All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://l.stackstate.com/ui-splunk-default-fields) other than `_time` will be filtered out of the result.<br />Any other fields present in the result will be available in StackState in the `data` field of the component properties `source` tab. |
 
 #### Relation fields
 
@@ -81,14 +81,14 @@ The example Splunk saved search above would result in the following topology rel
 
 To enable the Splunk topology V1 integration and begin collecting component and relation data from your Splunk instance, the Splunk topology V1 check must be configured on the API-Integration Agent. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
-See the example Splunk topology Agent check configuration file: [splunk_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example)
+See the example Splunk topology Agent check configuration file: [splunk_topology/conf.yaml.example \(github.com\)](https://l.stackstate.com/ui-splunk-topology-v1-check-example)
 
 To configure the Splunk topology Agent check:
 
 1. Edit the API-Integration Agent check configuration file: `/etc/sts-agent/conf.d/splunk_topology.yaml`
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
-   * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/splunk/splunk_stackpack.md#authentication).
+   * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](https://l.stackstate.com/ui-splunk-stackpack-authentication).
    * **ignore_saved_search_errors** - Set to `false` to return an error if one of the configured saved searches does not exist. Default `true`.
    * **tags** - Optional. Can be used to apply specific tags to all reported topology in StackState.
 3. Under **component_saved_searches**, add details of each Splunk saved search that the check should execute to retrieve components: 
@@ -101,7 +101,7 @@ To configure the Splunk topology Agent check:
        * **batch_size** - Default `1000`.
        * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
 4. Under **relation_saved_searches**, add details of each Splunk saved search that the check should execute to retrieve relations.
-5. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example). 
+5. More advanced options can be found in the [example configuration \(github.com\)](https://l.stackstate.com/ui-splunk-topology-v1-check-example). 
 5. Save the configuration file.
 6. Restart the StackState API-Integration Agent to apply the configuration changes.
 7. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.

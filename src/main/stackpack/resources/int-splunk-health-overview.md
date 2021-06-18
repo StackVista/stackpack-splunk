@@ -11,7 +11,7 @@ The Splunk health check on StackState Agent V2 will execute all configured Splun
 
 ### Fields used
 
-StackState Agent V2 executes the Splunk saved searches configured in the Splunk health Agent checkaand pushes retrieved data to StackState. The following fields from the results of a saved search are sent to StackState:
+StackState Agent V2 executes the Splunk saved searches configured in the Splunk health Agent check and pushes retrieved data to StackState. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Required? | Description |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -42,14 +42,14 @@ StackState Agent V2 executes the Splunk saved searches configured in the Splunk 
 
 To enable the Splunk health integration and begin collecting health data from your Splunk instance, the Splunk health check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
-See the example Splunk health Agent check configuration file: [splunk_health/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/conf.yaml.example)
+See the example Splunk health Agent check configuration file: [splunk_health/conf.yaml.example \(github.com\)](https://l.stackstate.com/ui-splunk-health-check-example)
 
 To configure the Splunk health Agent check:
 
 1. Edit the StackState Agent V2 configuration file `/etc/stackstate-agent/conf.d/splunk_health.d/conf.yaml`.
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
-   * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](/stackpacks/integrations/splunk/splunk_stackpack.md#authentication).
+   * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](https://l.stackstate.com/ui-splunk-stackpack-authentication).
    * **ignore_saved_search_errors** - Set to `false` to return an error if one of the configured saved searches does not exist. Default `true`.
 3. Under **saved_searches**, add details of each Splunk saved search that the check should execute to retrieve health information: 
      * **name** - The name of the Splunk saved search to execute.
@@ -60,11 +60,11 @@ To configure the Splunk health Agent check:
        * **search_seconds_between_retries** - Default `1`.
        * **batch_size** - Default `1000`.
        * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
-4. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/conf.yaml.example). 
+4. More advanced options can be found in the [example configuration \(github.com\)](https://l.stackstate.com/ui-splunk-health-check-example). 
 6. Save the configuration file.
 7. Restart StackState Agent V2 to apply the configuration changes.
 8. Incoming health data will be mapped to associated components and relations in the StackState UI as check states.
-9. To more closely inspect what the synchronization is doing, [use the StackState CLI](/configure/health/debug-health-sync.md)
+9. To more closely inspect what the synchronization is doing, [use the StackState CLI](https://l.stackstate.com/4.4/ui-debug-health-sync)
 
 ### Disable the Agent check
 
