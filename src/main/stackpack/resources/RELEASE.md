@@ -4,7 +4,7 @@
 
 - Added possibility to synchronize topology with StackState Agent V2
 - Added health synchronization for splunk
-- Added links on how to synchronize events and metrics with the API-Integration agent
+- Added links on how to synchronize events and metrics with StackState Agent V1
 
 ## 1.1.0 (02-04-2021)
 
