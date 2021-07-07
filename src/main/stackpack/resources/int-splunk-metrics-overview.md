@@ -13,7 +13,7 @@ The Splunk metrics check on StackState Agent V1 will execute all configured Splu
 
 StackState Agent V1 executes the Splunk saved searches configured in the Splunk metrics Agent check configuration file and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
-| Field | Type | Description |
+| Field | Type | Required | Description |
 | :--- | :--- | :--- |
 | **\_time** | long | - | Data collection timestamp, millis since epoch. |
 | **metric** | string | - | The name of the metric. Taken from the configured `metric_name_field`. |
@@ -22,7 +22,7 @@ StackState Agent V1 executes the Splunk saved searches configured in the Splunk 
 ### Example Splunk query
 
 **Splunk query**
-```text
+```
 index=vms MetricId=cpu.usage.average
 | table _time VMName Value    
 | eval VMName = upper(VMName)
@@ -31,10 +31,11 @@ index=vms MetricId=cpu.usage.average
 ```
 
 **Splunk metrics Agent check configuration**
-...
+
+```
 metric_name_field: "metricCpuUsageAverage"
 metric_value_field: "valueCpuUsageAverage"
-...
+```
 
 The example Splunk saved search above would result in the following metric data in StackState:
 
