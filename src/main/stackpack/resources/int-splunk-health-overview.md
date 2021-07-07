@@ -14,8 +14,8 @@ The Splunk health check on StackState Agent V2 will execute all configured Splun
 StackState Agent V2 executes the Splunk saved searches configured in the Splunk health Agent check and pushes retrieved data to StackState. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Required? | Description |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **check_state_id** | ✅ | string | The unique identifier for the check state.  |
+| :--- | :--- | :--- | :--- |
+| **check_state_id** | string | ✅ | The unique identifier for the check state.  |
 | **name** | string | ✅ | Display name for the check state.  |
 | **health** | string | ✅ | The health value of the check state. Can be clear, deviating or critical. |
 | **topology_element_identifier** | string | ✅ | The identifier of the component/relation this check state belongs to. |
@@ -25,7 +25,7 @@ StackState Agent V2 executes the Splunk saved searches configured in the Splunk 
 
 **Splunk query for components**
 
-```text
+```
 | loadjob savedsearch=:disks
 | search OrganizationPart="*" OrgGrp="*" company="*"
 | table host disk available_pct
