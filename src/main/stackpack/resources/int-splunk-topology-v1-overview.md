@@ -30,7 +30,7 @@ The following fields from the results of a saved search are sent to StackState f
 
 The following fields from the results of a saved search are sent to StackState for topology relations:
 
-| Field | | Type | Required? | Description |
+| Field | Type | Required? | Description |
 | :--- | :--- | :--- | :--- | 
 | **type** | string | ✅ | The type of component or relation.  |
 | **sourceId** | string | ✅ | The ID of the component that is the source of the relation. |
