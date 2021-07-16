@@ -1,7 +1,8 @@
 # Splunk StackPack Release Notes
 
-## 1.2.0 (TBD)
+## 1.2.0 (16-07-2021)
 
+**Features**
 - Added possibility to synchronize topology with StackState Agent V2
 - Added health synchronization for splunk
 - Added links on how to synchronize events and metrics with StackState Agent V1
