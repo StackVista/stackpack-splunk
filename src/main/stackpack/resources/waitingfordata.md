@@ -1,36 +1,16 @@
-## The Splunk Topology StackPack is waiting for your action
+## The Splunk StackPack is waiting for data
 
-Provisioning of StackState configuration is done. We are now ready to process your data. If you haven't installed the StackState API Integration Agent please do so. After the installation of the API Integration Agent we can configure the Splunk Topology integration.
- 
-### Installation
+StackState Agent V1 and/or StackState Agent V2 must be configured with a Splunk Agent check for each type of data you want to retrieve from Splunk. You can choose to retrieve topology, metrics, events and/or health data.
 
-Configure the API Integration Agent using the following sequence of steps:
+Details of how to configure each of these checks can be found on the pages listed below:
 
-1. Enable the Splunk Topology integration
+* [Splunk topology V2 check with StackState Agent V2](/#/stackpacks/splunk-topology/splunktopologyv2)
+* [Splunk topology V1 check with StackState Agent V1](/#/stackpacks/splunk-topology/splunktopologyv1)
+* [Splunk metrics check configuration](/#/stackpacks/splunk-topology/splunkmetrics)
+* [Splunk events check configuration](/#/stackpacks/splunk-topology/splunkevents)
+* [Splunk health check configuration](/#/stackpacks/splunk-topology/splunkhealth)
 
-    ```
-    mv /etc/sts-agent/conf.d/splunk_topology.yaml.example /etc/sts-agent/conf.d/splunk_topology.yaml
-    ```
-2. Edit the configuration file
+## Troubleshooting
 
-    ```
-    vi /etc/sts-agent/conf.d/splunk_topology.yaml
-    ```
-  
-    Specify Splunk's API URL as provided to the StackPack, authentication, the saved searches to be read, and save the file.
-    
-    
+Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://l.stackstate.com/ui-splunk-support-kb).
 
-3. Verify that the integration could read the Splunk saved searches correctly 
-
-    ```
-    sts-agent check splunk_topology
-    ```
-
-    This command returns a list of components and relations that it collected from Splunk. The command does not send any data to StackState.
-
-4. Restart the StackState Agent to apply changes
-
-    ```
-    systemctl restart stackstate-agent
-    ```
