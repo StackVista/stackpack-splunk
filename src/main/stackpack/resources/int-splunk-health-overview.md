@@ -64,7 +64,7 @@ To configure the Splunk health Agent check:
 6. Save the configuration file.
 7. Restart StackState Agent V2 to apply the configuration changes.
 8. Incoming health data will be mapped to associated components and relations in the StackState UI as check states.
-9. To more closely inspect what the synchronization is doing, [use the StackState CLI](https://l.stackstate.com/4.4/ui-debug-health-sync)
+9. To more closely inspect what the synchronization is doing, [use the StackState CLI](https://l.stackstate.com/v4.4/ui-debug-health-sync)
 
 ### Disable the Agent check
 
