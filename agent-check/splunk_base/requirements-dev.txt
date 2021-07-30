@@ -1,0 +1,2 @@
+stackstate_checks_dev
+stackstate_checks_base[deps]
