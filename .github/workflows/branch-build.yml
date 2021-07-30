@@ -37,6 +37,15 @@ jobs:
         run: source .ci_scripts/setup_pip.sh
       - name: Install checksdev
         run: pip install stackstate_checks_dev[cli]
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: artifactory.stackstate.io
+          username: ${{ secrets.ARTIFACTORY_USERNAME }}
+          password: ${{ secrets.ARTIFACTORY_PASSWORD }}
+        env:
+          ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+          ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
       - name: Run spunk base test
         run: ( cd agent-check && checksdev --here test splunk_base )
       - name: Run spunk health test
