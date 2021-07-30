@@ -31,6 +31,9 @@ jobs:
         with:
           python-version: '3.8'
       - name: Add pip repository
+        env:
+          ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_USERNAME }}
+          ARTIFACTORY_PASSWORD: ${{ secrets.ARTIFACTORY_PASSWORD }}
         run: source .ci_scripts/setup_pip.sh
       - name: Install checksdev
         run: pip install stackstate_checks_dev[cli]
