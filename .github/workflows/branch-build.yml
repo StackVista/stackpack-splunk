@@ -38,9 +38,9 @@ jobs:
       - name: Install checksdev
         run: pip install stackstate_checks_dev[cli]
       - name: Run spunk base test
-        run: ( cd agent-check && checksdev test splunk_base )
+        run: ( cd agent-check && checksdev --here test splunk_base )
       - name: Run spunk health test
-        run: ( cd agent-check && checksdev test splunk_health )
+        run: ( cd agent-check && checksdev --here test splunk_health )
       - name: Run spunk topology test
-        run: ( cd agent-check && checksdev test splunk_topology )
+        run: ( cd agent-check && checksdev --here test splunk_topology )
 
