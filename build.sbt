@@ -23,7 +23,7 @@ def getCredentials(realm: String, fallback: Credentials) =
       user <- sys.env.get("ARTIFACTORY_USERNAME")
       pwd <- sys.env.get("ARTIFACTORY_PASSWORD")
     } yield Credentials(realm, host, user, pwd)
-    ).getOrElse(fallback)
+  ).getOrElse(fallback)
 
 lazy val root = (project in file("."))
   .settings(
@@ -46,9 +46,9 @@ lazy val root = (project in file("."))
         "-Yrangepos"
       ),
       javacOptions ++= Vector("-source", "1.8", "-target", "1.8", "-Xlint:unchecked", "-Xlint:deprecation", "-Werror"),
-      resolvers ++= Vector("Stackstate Artifactory" at s"https://$host/artifactory/libs-release", Resolver.mavenLocal),
+      resolvers ++= Vector("Stackstate Artifactory" at s"https://${host}/artifactory/libs-release", Resolver.mavenLocal),
       coursierUseSbtCredentials := true,
-      // Publishing the StackPack is done by the StackState CI/CD pipeline.
+      // Publishing the Splunk StackPack is done by the StackState CI/CD pipeline.
       credentials ++= List(getCredentials(realm, fileCredentials), getCredentials(publishRealm, publishFileCredentials)),
       publishTo := Some(publishRealm at s"https://${host}/artifactory/libs"),
       // disable publishing the main doc jar
