@@ -1,17 +1,17 @@
 ## Overview
 
-The StackState Splunk events integration collects events from Splunk by executing Splunk saved searches from [StackState Agent V1](https://l.stackstate.com/ui-splunk-agent-v1). In order to receive Splunk events data in StackState, configuration needs to be added to both Splunk and StackState Agent V1:
+The StackState Splunk events integration collects events from Splunk by executing Splunk saved searches from [StackState Agent V2](/#/stackpacks/stackstate-agent-v2/). In order to receive Splunk events data in StackState, configuration needs to be added to both Splunk and StackState Agent V2:
 
 * In Splunk there should be at least one saved search that generates the events data you want to retrieve.
-* In StackState Agent V1, a Splunk events check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* In StackState Agent V2, a Splunk events check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
-The Splunk events check on StackState Agent V1 will execute all configured Splunk saved searches periodically. Data will be requested from the last received event timestamp up until now. 
+The Splunk events check on StackState Agent V2 will execute all configured Splunk saved searches periodically. Data will be requested from the last received event timestamp up until now. 
 
 ## Splunk saved search
 
 ### Fields used
 
-StackState Agent V1 executes the Splunk saved searches configured in the Splunk events Agent check configuration file and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
+StackState Agent V2 executes the Splunk saved searches configured in the Splunk events Agent check configuration file and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Required? | Description |
 | :--- | :--- | :--- |
@@ -52,7 +52,7 @@ See the example Splunk events Agent check configuration file: [splunk_event/conf
 
 To configure the Splunk events Agent check:
 
-1. Edit the StackState Agent V1 configuration file `/etc/sts-agent/conf.d/splunk_events.yaml`.
+1. Edit the StackState Agent V2 configuration file `/etc/stackstate-agent/conf.d/splunk_event.d/conf.yaml`.
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](https://l.stackstate.com/ui-splunk-stackpack-authentication)).
@@ -89,7 +89,7 @@ To disable the Splunk events Agent check:
 1. Remove or rename the Agent integration configuration file, for example:
 
    ```text
-    mv conf.d/splunk_event.yaml conf.d/splunk_event.yaml.bak
+   mv /etc/stackstate-agent/conf.d/splunk_event.d/conf.yaml /etc/stackstate-agent/conf.d/splunk_event.d/conf.yaml.bak
    ```
 
 2. Restart the StackState Agent\(s\) to apply the configuration changes.

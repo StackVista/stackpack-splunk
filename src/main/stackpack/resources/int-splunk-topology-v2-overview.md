@@ -1,6 +1,6 @@
 ## Overview
 
-The StackState Splunk topology V2 integration collects topology from Splunk by executing Splunk saved searches from [StackState Agent V2](/#/stackpacks/stackstate-agent-v2/). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and StackState Agent V2: 
+The StackState Splunk topology integration collects topology from Splunk by executing Splunk saved searches from [StackState Agent V2](/#/stackpacks/stackstate-agent-v2/). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and StackState Agent V2: 
 
 * In Splunk there should be at least one saved search that generates the topology data you want to retrieve.
 * In StackState Agent V2, a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
