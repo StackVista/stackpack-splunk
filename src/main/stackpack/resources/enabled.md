@@ -20,4 +20,4 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall the Splunk StackPack
 
-The Splunk StackPack can be uninstalled by clicking the **UNINSTALL** button. This will remove all Splunk topology specific configuration in StackState.
+The Splunk StackPack can be uninstalled by clicking the **UNINSTALL** button. This will remove all Splunk specific configuration in StackState.

@@ -77,7 +77,7 @@ To configure the Splunk metrics Agent check:
        * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
 5. More advanced options can be found in the [example configuration \(github.com\)](https://l.stackstate.com/ui-splunk-metrics-v2-check-example). 
 4. Save the configuration file.
-5. Restart StackState Agent V1 to apply the configuration changes.
+5. Restart StackState Agent V2 to apply the configuration changes.
 6. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
 7. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](https://l.stackstate.com/ui-splunk-add-telemetry-stream).
 
