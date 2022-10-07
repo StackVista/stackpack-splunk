@@ -1,17 +1,17 @@
 ## Overview
 
-The StackState Splunk metrics integration collects metrics from Splunk by executing Splunk saved searches from [StackState Agent V1](https://l.stackstate.com/ui-splunk-agent-v1). In order to receive Splunk metrics data in StackState, configuration needs to be added to both Splunk and StackState Agent V1:
+The StackState Splunk metrics integration collects metrics from Splunk by executing Splunk saved searches from [StackState Agent V2](/#/stackpacks/stackstate-agent-v2/). In order to receive Splunk metrics data in StackState, configuration needs to be added to both Splunk and StackState Agent V2:
 
 * In Splunk there should be at least one saved search that generates the metrics data you want to retrieve. Each saved search can retrieve one metric.
-* In StackState Agent V1, a Splunk metrics check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* In StackState Agent V2, a Splunk metrics check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
-The Splunk metrics check on StackState Agent V1 will execute all configured Splunk saved searches periodically. Data will be requested from the last received metric timestamp up until now.
+The Splunk metrics check on StackState Agent V2 will execute all configured Splunk saved searches periodically. Data will be requested from the last received metric timestamp up until now.
 
 ## Splunk saved search
 
 ### Fields used
 
-StackState Agent V1 executes the Splunk saved searches configured in the Splunk metrics Agent check configuration file and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
+StackState Agent V2 executes the Splunk saved searches configured in the Splunk metrics Agent check configuration file and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Required | Description |
 | :--- | :--- | :--- |
@@ -49,13 +49,13 @@ The example Splunk saved search above would result in the following metric data 
 
 ### Configure the Splunk metrics check
 
-To enable the Splunk metrics integration and begin collecting metrics data from your Splunk instance, the Splunk metrics check must be configured on StackState Agent V1. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
+To enable the Splunk metrics integration and begin collecting metrics data from your Splunk instance, the Splunk metrics check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
-See the example Splunk metrics Agent check configuration file: [splunk_metric/conf.yaml.example \(github.com\)](https://l.stackstate.com/ui-splunk-metrics-check-example)
+See the example Splunk metrics Agent check configuration file: [splunk_metric/conf.yaml.example \(github.com\)](https://l.stackstate.com/ui-splunk-metrics-v2-check-example)
 
 To configure the Splunk metrics Agent check:
 
-1. Edit the StackState Agent V1 configuration file `/etc/sts-agent/conf.d/splunk_metric.yaml`.
+1. Edit the StackState Agent V2 configuration file `/etc/stackstate-agent/conf.d/splunk_metric.d/conf.yaml`.
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based (recommended) or basic authentication. For details, see [authentication configuration details](https://l.stackstate.com/ui-splunk-stackpack-authentication).
@@ -75,9 +75,9 @@ To configure the Splunk metrics Agent check:
        * **max_query_chunk_seconds** - Default `3600`
        * **unique_key_fields** - The fields to use to uniquely identify a record (see below for details). Default `_bkt` and `_cd`.
        * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
-5. More advanced options can be found in the [example configuration \(github.com\)](https://l.stackstate.com/ui-splunk-metrics-check-example). 
+5. More advanced options can be found in the [example configuration \(github.com\)](https://l.stackstate.com/ui-splunk-metrics-v2-check-example). 
 4. Save the configuration file.
-5. Restart StackState Agent V1 to apply the configuration changes.
+5. Restart StackState Agent V2 to apply the configuration changes.
 6. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
 7. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](https://l.stackstate.com/ui-splunk-add-telemetry-stream).
 
@@ -94,7 +94,7 @@ To disable the Splunk metrics Agent check:
 1. Remove or rename the Agent integration configuration file, for example:
 
    ```text
-    mv conf.d/splunk_metrics.yaml conf.d/splunk_metrics.yaml.bak
+    mv /etc/stackstate-agent/conf.d/splunk_metric.d/conf.yaml /etc/stackstate-agent/conf.d/splunk_metric.d/conf.yaml.bak
    ```
 
 2. Restart the StackState Agent to apply the configuration changes.

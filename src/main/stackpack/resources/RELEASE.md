@@ -1,5 +1,10 @@
 # Splunk StackPack Release Notes
 
+## 1.2.1 (07-10-2022)
+
+**Improvements**
+- Documentation updates
+
 ## 1.2.0 (16-07-2021)
 
 **Features**
