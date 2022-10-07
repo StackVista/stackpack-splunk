@@ -14,10 +14,10 @@ Find out more in the [Splunk StackPack documentation](https://l.stackstate.com/u
 
 Refer to the StackState docs for details on [how to change configuration of the StackState Agent Splunk checks](https://l.stackstate.com/ui-splunk-checks) that collect data from Splunk.
 
-## Troubleshooting
+### Troubleshooting
 
 Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://l.stackstate.com/ui-splunk-support-kb).
 
-## Uninstall the Splunk StackPack
+### Uninstall the Splunk StackPack
 
 The Splunk StackPack can be uninstalled by clicking the **UNINSTALL** button. This will remove all Splunk specific configuration in StackState.
