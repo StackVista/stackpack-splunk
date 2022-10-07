@@ -49,7 +49,7 @@ The example Splunk saved search above would result in the following metric data 
 
 ### Configure the Splunk metrics check
 
-To enable the Splunk metrics integration and begin collecting metrics data from your Splunk instance, the Splunk metrics check must be configured on StackState Agent V1. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
+To enable the Splunk metrics integration and begin collecting metrics data from your Splunk instance, the Splunk metrics check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 See the example Splunk metrics Agent check configuration file: [splunk_metric/conf.yaml.example \(github.com\)](https://l.stackstate.com/ui-splunk-metrics-v2-check-example)
 
